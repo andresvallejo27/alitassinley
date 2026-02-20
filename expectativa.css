@@ -1,0 +1,611 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Alitas Sin Ley — Lanzamiento</title>
+  <meta name="description" content="Alitas Sin Ley llega a Chía. Lanzamiento oficial: cuenta regresiva, promos y fuego callejero." />
+  <meta name="theme-color" content="#000000" />
+
+  <!-- SEO local básico -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Restaurant",
+    "name":"Alitas Sin Ley",
+    "address":{"@type":"PostalAddress","addressLocality":"Chía","addressRegion":"Cundinamarca","addressCountry":"CO"},
+    "telephone":"+57 305 752 5071",
+    "openingHours":"Mo-Su 12:00-22:00"
+  }
+  </script>
+
+  <style>
+    :root{
+      --bg:#000;
+      --red:#DB2210;
+      --red2:#A3190B;
+      --orange:#F15A17;
+      --warm:#F8F4E4;
+      --muted:rgba(248,244,228,.72);
+      --glass:rgba(255,255,255,.06);
+      --stroke:rgba(255,255,255,.14);
+      --shadow: 0 20px 80px rgba(241,90,23,.12), 0 10px 40px rgba(219,34,16,.10);
+      --radius: 22px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--warm);
+      overflow-x:hidden;
+    }
+
+    /* Fondo urbano + fuego */
+    .bg{
+      position:fixed; inset:0;
+      background:
+        radial-gradient(1200px 700px at 20% 80%, rgba(241,90,23,.22), transparent 60%),
+        radial-gradient(900px 600px at 85% 20%, rgba(219,34,16,.18), transparent 60%),
+        radial-gradient(800px 500px at 50% 110%, rgba(241,90,23,.22), transparent 55%),
+        linear-gradient(180deg, rgba(0,0,0,.92), rgba(0,0,0,.98));
+      z-index:-3;
+    }
+    .noise{
+      position:fixed; inset:0;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='.22'/%3E%3C/svg%3E");
+      mix-blend-mode: overlay;
+      opacity:.22;
+      z-index:-2;
+      pointer-events:none;
+    }
+
+    /* chispas ligeras */
+    .sparks{
+      position:fixed; inset:0;
+      pointer-events:none;
+      z-index:-1;
+      opacity:.75;
+    }
+
+    /* Topbar */
+    .topbar{
+      position:sticky;
+      top:0;
+      z-index:50;
+      backdrop-filter: blur(10px);
+      background: rgba(0,0,0,.55);
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+    .wrap{
+      max-width:1100px;
+      margin:0 auto;
+      padding:14px 18px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width:220px;
+    }
+    .brand img{
+      width:42px; height:42px;
+      border-radius:12px;
+      background: rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.10);
+      object-fit:contain;
+    }
+    .brand strong{
+      letter-spacing:.8px;
+      text-transform:uppercase;
+      font-weight:900;
+      font-size:16px;
+      line-height:1;
+    }
+    .brand strong span{color:var(--orange)}
+    .brand small{
+      display:block;
+      color: var(--muted);
+      font-size:12px;
+      margin-top:3px;
+    }
+
+    .cta{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:12px 14px;
+      border-radius:999px;
+      text-decoration:none;
+      font-weight:800;
+      letter-spacing:.2px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+      color: var(--warm);
+      transition: transform .12s ease, background .12s ease, border-color .12s ease;
+      user-select:none;
+    }
+    .btn:hover{transform: translateY(-1px); border-color: rgba(241,90,23,.35)}
+    .btn.primary{
+      background: linear-gradient(90deg, var(--red), var(--orange));
+      border:1px solid rgba(0,0,0,.2);
+      box-shadow: 0 14px 60px rgba(241,90,23,.22);
+      color:#fff;
+    }
+
+    /* Layout principal */
+    main{padding: 42px 18px 22px;}
+    .grid{
+      max-width:1100px;
+      margin:0 auto;
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:18px;
+      align-items:stretch;
+    }
+    @media (max-width: 900px){
+      .grid{grid-template-columns:1fr}
+      .brand{min-width:auto}
+    }
+
+    .card{
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
+      border:1px solid rgba(255,255,255,.12);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+
+    /* HERO */
+    .hero{
+      padding: 26px 22px 22px;
+      position:relative;
+    }
+    .tag{
+      display:inline-flex;
+      gap:8px;
+      align-items:center;
+      padding:8px 12px;
+      border-radius:999px;
+      background: rgba(219,34,16,.12);
+      border:1px solid rgba(219,34,16,.26);
+      color:#fff;
+      font-weight:800;
+      letter-spacing:.3px;
+      text-transform:uppercase;
+      font-size:12px;
+    }
+    .hero h1{
+      margin:14px 0 10px;
+      font-size: clamp(34px, 4vw, 56px);
+      line-height:1.02;
+      letter-spacing:.4px;
+      text-transform:uppercase;
+      font-weight:950;
+    }
+    .hero h1 .hot{color: var(--orange); text-shadow: 0 0 40px rgba(241,90,23,.18);}
+    .hero p{
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 16px;
+      line-height:1.55;
+      max-width: 62ch;
+    }
+
+    /* Countdown */
+    .count{
+      display:grid;
+      grid-template-columns: repeat(4, minmax(0,1fr));
+      gap:10px;
+      margin-top: 10px;
+    }
+    .box{
+      border-radius: 18px;
+      background: rgba(0,0,0,.35);
+      border:1px solid rgba(255,255,255,.10);
+      padding: 14px 12px;
+      text-align:center;
+      position:relative;
+      overflow:hidden;
+    }
+    .box:before{
+      content:"";
+      position:absolute; inset:-1px;
+      background: radial-gradient(400px 180px at 30% 0%, rgba(241,90,23,.22), transparent 55%),
+                  radial-gradient(380px 180px at 80% 120%, rgba(219,34,16,.18), transparent 60%);
+      opacity:.8;
+      z-index:0;
+    }
+    .box > *{position:relative; z-index:1}
+    .num{
+      font-weight:950;
+      font-size: clamp(22px, 3vw, 38px);
+      letter-spacing:.8px;
+    }
+    .lbl{
+      margin-top:4px;
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:1px;
+      color: rgba(248,244,228,.75);
+    }
+
+    /* Panel derecho */
+    .side{
+      padding: 22px;
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+    }
+    .side h3{
+      margin:0;
+      text-transform:uppercase;
+      letter-spacing:.7px;
+      font-size:16px;
+      font-weight:900;
+    }
+    .pill{
+      display:flex;
+      justify-content:space-between;
+      gap:10px;
+      padding:12px 12px;
+      border-radius: 16px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.28);
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .pill b{color: var(--warm)}
+    .bullets{
+      margin:0;
+      padding-left: 18px;
+      color: var(--muted);
+      line-height:1.5;
+      font-size:14px;
+    }
+    .small{
+      font-size:13px;
+      color: rgba(248,244,228,.70);
+      line-height:1.45;
+      margin:0;
+    }
+
+    /* Form "Aviso de lanzamiento" (sin backend) */
+    .notify{
+      display:flex;
+      gap:10px;
+      margin-top: 6px;
+      flex-wrap:wrap;
+    }
+    .input{
+      flex: 1 1 220px;
+      border-radius: 999px;
+      padding: 12px 14px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+      color: var(--warm);
+      outline:none;
+    }
+    .input::placeholder{color: rgba(248,244,228,.55)}
+    .toast{
+      display:none;
+      margin-top: 10px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      background: rgba(241,90,23,.12);
+      border:1px solid rgba(241,90,23,.22);
+      color: rgba(248,244,228,.92);
+      font-size: 13px;
+    }
+
+    /* Sección campaña */
+    .campaign{
+      max-width:1100px;
+      margin: 18px auto 0;
+      padding: 18px;
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap:12px;
+    }
+    @media (max-width: 900px){
+      .campaign{grid-template-columns:1fr}
+    }
+    .tile{
+      padding: 16px;
+      border-radius: 20px;
+      background: rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.10);
+    }
+    .tile strong{
+      display:block;
+      text-transform:uppercase;
+      letter-spacing:.7px;
+      font-weight:900;
+      margin-bottom: 6px;
+    }
+    .tile p{
+      margin:0;
+      color: var(--muted);
+      line-height:1.5;
+      font-size: 14px;
+    }
+
+    footer{
+      max-width:1100px;
+      margin: 18px auto 30px;
+      padding: 0 18px;
+      color: rgba(248,244,228,.55);
+      font-size: 12px;
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+    .links a{color: rgba(248,244,228,.75); text-decoration:none}
+    .links a:hover{color: var(--orange)}
+  </style>
+</head>
+
+<body>
+  <div class="bg"></div>
+  <div class="noise"></div>
+  <canvas class="sparks" id="sparks"></canvas>
+
+  <header class="topbar">
+    <div class="wrap">
+      <div class="brand">
+        <!-- Cambia la ruta si tu logo está en otra carpeta -->
+        <img src="assets/logo.png" alt="Logo Alitas Sin Ley" onerror="this.style.display='none'">
+        <div>
+          <strong>ALITAS <span>SIN LEY</span></strong>
+          <small>Chía, Cundinamarca • 12:00 m – 10:00 pm</small>
+        </div>
+      </div>
+
+      <div class="cta">
+        <a class="btn" href="#campana">Campaña</a>
+        <a class="btn primary" id="ctaWhats" target="_blank" rel="noopener">🔥 Quiero estar primero</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="grid">
+      <article class="card hero">
+        <span class="tag">🔥 Lanzamiento en Chía</span>
+        <h1>ALITAS SIN REGLAS.<br><span class="hot">FUEGO</span> SIN PIEDAD.</h1>
+        <p>
+          Se viene lo ilegalmente sabroso. Estamos preparando el primer drop de salsas
+          y combos para que Chía coma con actitud.
+        </p>
+
+        <div class="count" aria-label="Cuenta regresiva al lanzamiento">
+          <div class="box">
+            <div class="num" id="d">00</div>
+            <div class="lbl">Días</div>
+          </div>
+          <div class="box">
+            <div class="num" id="h">00</div>
+            <div class="lbl">Horas</div>
+          </div>
+          <div class="box">
+            <div class="num" id="m">00</div>
+            <div class="lbl">Min</div>
+          </div>
+          <div class="box">
+            <div class="num" id="s">00</div>
+            <div class="lbl">Seg</div>
+          </div>
+        </div>
+
+        <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
+          <a class="btn primary" id="btnWhats" target="_blank" rel="noopener">Ordenar / Preguntar por lanzamiento</a>
+          <a class="btn" href="#notify">Recibir aviso</a>
+        </div>
+      </article>
+
+      <aside class="card side">
+        <h3>Lo que viene</h3>
+        <div class="pill"><span>⚠️ Drop limitado</span><b>Primeros en probar</b></div>
+        <div class="pill"><span>🔥 Salsas extremas</span><b>Nivel criminal</b></div>
+        <div class="pill"><span>🚀 Atención rápida</span><b>WhatsApp directo</b></div>
+
+        <p class="small">
+          Únete a la lista de “Los Primeros Sin Ley” y te mandamos el mensaje apenas abramos,
+          con promo de lanzamiento (si aplica).
+        </p>
+
+        <div id="notify">
+          <div class="notify">
+            <input class="input" id="name" placeholder="Tu nombre (opcional)" />
+            <input class="input" id="contact" placeholder="Tu WhatsApp o IG (@usuario)" />
+            <button class="btn primary" id="notifyBtn" type="button">🚨 Quiero el aviso</button>
+          </div>
+          <div class="toast" id="toast"></div>
+          <p class="small" style="margin-top:10px;">
+            *Esto no guarda datos en servidor (sin backend). Al darle “Quiero el aviso” se abre WhatsApp con tu mensaje listo.
+          </p>
+        </div>
+      </aside>
+    </section>
+
+    <section class="campaign" id="campana">
+      <div class="tile">
+        <strong>Campaña 1: “Drop de Fuego”</strong>
+        <p>
+          7 días antes: posteos de cuenta regresiva + teasers de salsa (1 por día).
+          Texto corto, agresivo, tipo graffiti.
+        </p>
+      </div>
+      <div class="tile">
+        <strong>Campaña 2: “Reto Sin Piedad”</strong>
+        <p>
+          El día 1: reto de salsa extrema. Quien aguante sin agua gana descuento/extra.
+          (Lo anuncias sin prometer cosas que no puedas cumplir).
+        </p>
+      </div>
+      <div class="tile">
+        <strong>Campaña 3: “Los Primeros Sin Ley”</strong>
+        <p>
+          Lista VIP por WhatsApp: “Escribe ‘SIN LEY’ y te soltamos el primer cupón”.
+          Esto dispara mensajes y pedidos rápido.
+        </p>
+      </div>
+    </section>
+
+    <footer>
+      <div>© <span id="yr"></span> Alitas Sin Ley • Chía, Cundinamarca</div>
+      <div class="links">
+        <a id="ig" href="#" target="_blank" rel="noopener">Instagram</a> •
+        <a id="tt" href="#" target="_blank" rel="noopener">TikTok</a> •
+        <a id="wa" href="#" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    // ========= CONFIG =========
+    const PHONE = "573057525071"; // +57 305 752 5071
+    // Cambia esta fecha/hora por tu lanzamiento real (hora Colombia -05:00)
+    const LAUNCH_DATE = "2026-03-15T12:00:00-05:00";
+
+    // Links redes (pon los tuyos cuando los tengas)
+    const INSTAGRAM_URL = "#";
+    const TIKTOK_URL = "#";
+    // ==========================
+
+    const $ = (id) => document.getElementById(id);
+    const pad = (n) => String(n).padStart(2, "0");
+
+    function waLink(text){
+      return `https://wa.me/${PHONE}?text=${encodeURIComponent(text)}`;
+    }
+
+    // Botones WhatsApp
+    const baseMsg = "🔥 Hola Alitas Sin Ley. Quiero estar primero para el lanzamiento en Chía. ¿Cuándo abren y qué promo va a salir?";
+    $("ctaWhats").href = waLink(baseMsg);
+    $("btnWhats").href = waLink(baseMsg);
+    $("wa").href = waLink("🔥 Hola Alitas Sin Ley. Quiero info del lanzamiento.");
+
+    $("ig").href = INSTAGRAM_URL;
+    $("tt").href = TIKTOK_URL;
+
+    // Cuenta regresiva
+    const launchTs = new Date(LAUNCH_DATE).getTime();
+
+    function tick(){
+      const now = Date.now();
+      let diff = launchTs - now;
+
+      if (isNaN(launchTs)) {
+        $("d").textContent = "??";
+        $("h").textContent = "??";
+        $("m").textContent = "??";
+        $("s").textContent = "??";
+        return;
+      }
+
+      if (diff <= 0){
+        $("d").textContent = "00";
+        $("h").textContent = "00";
+        $("m").textContent = "00";
+        $("s").textContent = "00";
+        // Cambia mensaje cuando ya lanzó
+        $("btnWhats").textContent = "🔥 Ya abrió — Ordenar ahora";
+        $("btnWhats").href = waLink("🔥 Hola Alitas Sin Ley. YA ESTÁN ABIERTOS. Quiero hacer un pedido.");
+        return;
+      }
+
+      const d = Math.floor(diff / (1000*60*60*24));
+      diff -= d * (1000*60*60*24);
+      const h = Math.floor(diff / (1000*60*60));
+      diff -= h * (1000*60*60);
+      const m = Math.floor(diff / (1000*60));
+      diff -= m * (1000*60);
+      const s = Math.floor(diff / 1000);
+
+      $("d").textContent = pad(d);
+      $("h").textContent = pad(h);
+      $("m").textContent = pad(m);
+      $("s").textContent = pad(s);
+    }
+
+    tick();
+    setInterval(tick, 1000);
+    $("yr").textContent = new Date().getFullYear();
+
+    // "Recibir aviso" -> abre WhatsApp con texto armado
+    $("notifyBtn").addEventListener("click", () => {
+      const name = $("name").value.trim();
+      const contact = $("contact").value.trim();
+
+      const msg =
+        `🚨 QUIERO EL AVISO DE LANZAMIENTO (Chía)\n` +
+        (name ? `Nombre: ${name}\n` : "") +
+        (contact ? `Contacto: ${contact}\n` : "") +
+        `Mensaje: Envíenme el aviso apenas abran + promo si hay.\n` +
+        `🔥 Soy de los primeros SIN LEY.`;
+
+      window.open(waLink(msg), "_blank", "noopener");
+
+      const t = $("toast");
+      t.style.display = "block";
+      t.textContent = "Listo: se abrió WhatsApp con tu mensaje. Si no te abrió, revisa bloqueador de pop-ups.";
+      setTimeout(()=>{ t.style.display="none"; }, 4500);
+    });
+
+    // Chispas minimalistas (ligero)
+    const canvas = $("sparks");
+    const ctx = canvas.getContext("2d");
+    let w, h, sparks;
+
+    function resize(){
+      w = canvas.width = window.innerWidth;
+      h = canvas.height = window.innerHeight;
+      sparks = Array.from({length: Math.min(70, Math.floor(w/18))}, () => ({
+        x: Math.random()*w,
+        y: h + Math.random()*h,
+        r: Math.random()*2 + 0.6,
+        v: Math.random()*0.6 + 0.25,
+        a: Math.random()*0.5 + 0.15
+      }));
+    }
+    window.addEventListener("resize", resize);
+    resize();
+
+    const reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    function animate(){
+      if (reduce) return;
+      ctx.clearRect(0,0,w,h);
+      for (const p of sparks){
+        p.y -= p.v*2.8;
+        p.x += Math.sin(p.y*0.01)*0.35;
+        if (p.y < -20){
+          p.y = h + Math.random()*120;
+          p.x = Math.random()*w;
+        }
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
+        ctx.fillStyle = `rgba(241,90,23,${p.a})`;
+        ctx.fill();
+      }
+      requestAnimationFrame(animate);
+    }
+    animate();
+  </script>
+</body>
+</html>
