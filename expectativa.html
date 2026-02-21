@@ -3,85 +3,55 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Alitas Sin Ley — Lanzamiento (Solo domicilios)</title>
-  <meta name="description" content="Alitas Sin Ley llega a Chía. Solo domicilios. Cuenta regresiva al lanzamiento, lista VIP y fuego callejero." />
+  <title>Alitas Sin Ley — Lanzamiento en Chía</title>
+  <meta name="description" content="Alitas Sin Ley llega a Chía. Solo domicilios. Cuenta regresiva + lista VIP. Fuego callejero." />
   <meta name="theme-color" content="#000000" />
-
-  <!-- SEO local básico -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Restaurant",
-    "name":"Alitas Sin Ley",
-    "address":{"@type":"PostalAddress","addressLocality":"Chía","addressRegion":"Cundinamarca","addressCountry":"CO"},
-    "telephone":"+57 305 752 5071",
-    "openingHours":"Mo-Su 12:00-22:00",
-    "servesCuisine":"Wings"
-  }
-  </script>
 
   <style>
     :root{
       --bg:#000;
+      --text:#F8F4E4;
+      --muted: rgba(248,244,228,.72);
       --red:#DB2210;
-      --red2:#A3190B;
       --orange:#F15A17;
-      --warm:#F8F4E4;
-      --muted:rgba(248,244,228,.72);
-      --glass:rgba(255,255,255,.06);
-      --stroke:rgba(255,255,255,.14);
-      --shadow: 0 20px 80px rgba(241,90,23,.12), 0 10px 40px rgba(219,34,16,.10);
-      --radius: 22px;
+      --shadow: 0 30px 120px rgba(241,90,23,.12), 0 18px 70px rgba(219,34,16,.10);
+      --radius: 26px;
     }
-
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
     body{
       margin:0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
+      font-family: system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;
       background: var(--bg);
-      color: var(--warm);
+      color: var(--text);
       overflow-x:hidden;
     }
 
-    /* Fondo urbano + fuego */
+    /* Fondo */
     .bg{
-      position:fixed; inset:0;
+      position:fixed; inset:0; z-index:-4;
       background:
-        radial-gradient(1200px 700px at 20% 80%, rgba(241,90,23,.22), transparent 60%),
-        radial-gradient(900px 600px at 85% 20%, rgba(219,34,16,.18), transparent 60%),
-        radial-gradient(800px 500px at 50% 110%, rgba(241,90,23,.22), transparent 55%),
+        radial-gradient(1200px 700px at 18% 82%, rgba(241,90,23,.26), transparent 60%),
+        radial-gradient(900px 600px at 88% 18%, rgba(219,34,16,.20), transparent 62%),
+        radial-gradient(700px 500px at 50% 115%, rgba(241,90,23,.22), transparent 55%),
         linear-gradient(180deg, rgba(0,0,0,.92), rgba(0,0,0,.98));
-      z-index:-3;
     }
     .noise{
-      position:fixed; inset:0;
-      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='.22'/%3E%3C/svg%3E");
-      mix-blend-mode: overlay;
-      opacity:.22;
-      z-index:-2;
-      pointer-events:none;
+      position:fixed; inset:0; z-index:-3; pointer-events:none;
+      opacity:.18; mix-blend-mode: overlay;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)' opacity='.25'/%3E%3C/svg%3E");
     }
+    .sparks{ position:fixed; inset:0; z-index:-2; pointer-events:none; opacity:.75; }
 
-    /* chispas ligeras */
-    .sparks{
-      position:fixed; inset:0;
-      pointer-events:none;
-      z-index:-1;
-      opacity:.75;
-    }
-
-    /* Topbar */
+    /* Header */
     .topbar{
-      position:sticky;
-      top:0;
-      z-index:50;
-      backdrop-filter: blur(10px);
+      position:sticky; top:0; z-index:50;
       background: rgba(0,0,0,.55);
       border-bottom:1px solid rgba(255,255,255,.08);
+      backdrop-filter: blur(12px);
     }
     .wrap{
-      max-width:1100px;
+      max-width:1150px;
       margin:0 auto;
       padding:14px 18px;
       display:flex;
@@ -90,50 +60,51 @@
       gap:12px;
     }
     .brand{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      min-width:240px;
+      display:flex; align-items:center; gap:12px;
+      min-width: 240px;
     }
     .brand img{
-      width:42px; height:42px;
-      border-radius:12px;
+      width:44px; height:44px;
+      border-radius:14px;
       background: rgba(255,255,255,.06);
       border:1px solid rgba(255,255,255,.10);
       object-fit:contain;
     }
-    .brand strong{
-      letter-spacing:.8px;
+    .brand .title{
+      font-weight:1000;
+      letter-spacing:.9px;
       text-transform:uppercase;
-      font-weight:950;
       font-size:16px;
       line-height:1;
     }
-    .brand strong span{color:var(--orange)}
-    .brand small{
+    .brand .title span{ color: var(--orange); }
+    .brand .sub{
       display:block;
+      margin-top:4px;
       color: var(--muted);
       font-size:12px;
-      margin-top:3px;
       line-height:1.2;
+      white-space:nowrap;
     }
-    .brand small b{
-      color:#fff;
-      background: rgba(241,90,23,.16);
-      border: 1px solid rgba(241,90,23,.28);
-      padding: 1px 8px;
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:4px 10px;
       border-radius:999px;
-      margin-left:6px;
+      background: rgba(241,90,23,.14);
+      border:1px solid rgba(241,90,23,.24);
+      color:#fff;
+      font-weight:900;
+      margin-left:8px;
       white-space:nowrap;
     }
 
-    .cta{
-      display:flex;
-      gap:10px;
-      align-items:center;
-      flex-wrap:wrap;
-      justify-content:flex-end;
+    .nav{
+      display:flex; align-items:center; gap:10px; flex-wrap:wrap; justify-content:flex-end;
     }
+
+    /* Buttons */
     .btn{
       display:inline-flex;
       align-items:center;
@@ -141,37 +112,78 @@
       gap:10px;
       padding:12px 14px;
       border-radius:999px;
-      text-decoration:none;
-      font-weight:900;
-      letter-spacing:.2px;
       border:1px solid rgba(255,255,255,.12);
       background: rgba(255,255,255,.06);
-      color: var(--warm);
-      transition: transform .12s ease, background .12s ease, border-color .12s ease;
-      user-select:none;
+      color: var(--text);
+      font-weight:950;
+      text-decoration:none;
       cursor:pointer;
+      transition: transform .12s ease, border-color .12s ease, background .12s ease;
+      user-select:none;
+      white-space:nowrap;
     }
-    .btn:hover{transform: translateY(-1px); border-color: rgba(241,90,23,.35)}
+    .btn:hover{
+      transform: translateY(-1px);
+      border-color: rgba(241,90,23,.35);
+    }
     .btn.primary{
       background: linear-gradient(90deg, var(--red), var(--orange));
-      border:1px solid rgba(0,0,0,.2);
-      box-shadow: 0 14px 60px rgba(241,90,23,.22);
+      border:1px solid rgba(0,0,0,.22);
+      box-shadow: 0 18px 80px rgba(241,90,23,.18);
       color:#fff;
     }
 
-    /* Layout principal */
-    main{padding: 42px 18px 22px;}
+    /* Redes arriba (MUY visibles) */
+    .social-top{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.22);
+    }
+    .social-top .label{
+      font-size:12px;
+      font-weight:950;
+      letter-spacing:.7px;
+      text-transform:uppercase;
+      color: rgba(248,244,228,.78);
+      margin-right:2px;
+    }
+    .iconbtn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:44px; height:44px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+      transition: transform .12s ease, border-color .12s ease, background .12s ease;
+      text-decoration:none;
+    }
+    .iconbtn:hover{
+      transform: translateY(-1px);
+      border-color: rgba(241,90,23,.35);
+      background: rgba(255,255,255,.08);
+    }
+    .iconbtn svg{ width:20px; height:20px; fill: rgba(248,244,228,.92); }
+    .iconbtn:hover svg{ fill:#fff; }
+
+    /* Layout */
+    main{ padding: 42px 18px 22px; }
     .grid{
-      max-width:1100px;
+      max-width:1150px;
       margin:0 auto;
       display:grid;
       grid-template-columns: 1.2fr .8fr;
       gap:18px;
       align-items:stretch;
     }
-    @media (max-width: 900px){
-      .grid{grid-template-columns:1fr}
-      .brand{min-width:auto}
+    @media (max-width: 920px){
+      .grid{ grid-template-columns: 1fr; }
+      .brand .sub{ white-space:normal; }
+      .social-top .label{ display:none; }
     }
 
     .card{
@@ -180,41 +192,47 @@
       border:1px solid rgba(255,255,255,.12);
       box-shadow: var(--shadow);
       overflow:hidden;
-    }
-
-    /* HERO */
-    .hero{
-      padding: 26px 22px 22px;
       position:relative;
     }
+    .card::before{
+      content:"";
+      position:absolute; inset:-2px;
+      background:
+        radial-gradient(700px 260px at 10% 10%, rgba(241,90,23,.20), transparent 60%),
+        radial-gradient(640px 260px at 95% 0%, rgba(219,34,16,.16), transparent 60%);
+      opacity:.9;
+      z-index:0;
+      pointer-events:none;
+    }
+    .card > *{ position:relative; z-index:1; }
+
+    /* Hero */
+    .hero{ padding: 28px 24px 22px; }
     .tag{
       display:inline-flex;
-      gap:8px;
       align-items:center;
+      gap:10px;
       padding:8px 12px;
       border-radius:999px;
-      background: rgba(219,34,16,.12);
+      background: rgba(219,34,16,.14);
       border:1px solid rgba(219,34,16,.26);
       color:#fff;
-      font-weight:900;
+      font-weight:950;
       letter-spacing:.3px;
       text-transform:uppercase;
       font-size:12px;
     }
-    .hero h1{
-      margin:14px 0 10px;
-      font-size: clamp(34px, 4vw, 56px);
-      line-height:1.02;
-      letter-spacing:.4px;
+    h1{
+      margin: 14px 0 10px;
+      font-size: clamp(34px, 4.2vw, 60px);
+      line-height: 1.02;
+      letter-spacing:.3px;
       text-transform:uppercase;
       font-weight:1000;
     }
-    .hero h1 .hot{
-      color: var(--orange);
-      text-shadow: 0 0 40px rgba(241,90,23,.18);
-    }
+    .hot{ color: var(--orange); text-shadow: 0 0 46px rgba(241,90,23,.18); }
     .hero p{
-      margin: 0 0 18px;
+      margin:0 0 16px;
       color: var(--muted);
       font-size: 16px;
       line-height:1.55;
@@ -226,84 +244,47 @@
       display:grid;
       grid-template-columns: repeat(4, minmax(0,1fr));
       gap:10px;
-      margin-top: 10px;
+      margin-top: 12px;
     }
     .box{
       border-radius: 18px;
-      background: rgba(0,0,0,.35);
+      background: rgba(0,0,0,.34);
       border:1px solid rgba(255,255,255,.10);
       padding: 14px 12px;
       text-align:center;
-      position:relative;
       overflow:hidden;
     }
-    .box:before{
-      content:"";
-      position:absolute; inset:-1px;
-      background: radial-gradient(400px 180px at 30% 0%, rgba(241,90,23,.22), transparent 55%),
-                  radial-gradient(380px 180px at 80% 120%, rgba(219,34,16,.18), transparent 60%);
-      opacity:.8;
-      z-index:0;
-    }
-    .box > *{position:relative; z-index:1}
-    .num{
-      font-weight:1000;
-      font-size: clamp(22px, 3vw, 38px);
-      letter-spacing:.8px;
-    }
-    .lbl{
-      margin-top:4px;
-      font-size:12px;
-      text-transform:uppercase;
-      letter-spacing:1px;
-      color: rgba(248,244,228,.75);
-    }
+    .num{ font-weight:1000; font-size: clamp(22px, 2.9vw, 40px); letter-spacing:.8px; }
+    .lbl{ margin-top:4px; font-size:12px; text-transform:uppercase; letter-spacing:1px; color: rgba(248,244,228,.75); }
+
+    .hero-actions{ margin-top: 16px; display:flex; gap:10px; flex-wrap:wrap; }
 
     /* Panel derecho */
-    .side{
-      padding: 22px;
-      display:flex;
-      flex-direction:column;
-      gap:14px;
-    }
-    .side h3{
-      margin:0;
-      text-transform:uppercase;
-      letter-spacing:.7px;
-      font-size:16px;
-      font-weight:950;
-    }
+    .side{ padding: 22px; display:flex; flex-direction:column; gap:14px; }
+    .side h3{ margin:0; font-size:16px; text-transform:uppercase; letter-spacing:.8px; font-weight:1000; }
     .pill{
-      display:flex;
-      justify-content:space-between;
-      gap:10px;
-      padding:12px 12px;
-      border-radius: 16px;
+      display:flex; justify-content:space-between; align-items:center; gap:10px;
+      padding:12px 12px; border-radius: 16px;
       border:1px solid rgba(255,255,255,.10);
-      background: rgba(0,0,0,.28);
-      color: var(--muted);
+      background: rgba(0,0,0,.26);
+      color: rgba(248,244,228,.78);
       font-size: 14px;
     }
-    .pill b{color: var(--warm)}
-    .small{
-      font-size:13px;
-      color: rgba(248,244,228,.70);
-      line-height:1.45;
-      margin:0;
-    }
+    .pill b{ color: var(--text); }
 
-    /* Form "Aviso de lanzamiento" */
-    .notify{display:flex; gap:10px; margin-top: 6px; flex-wrap:wrap;}
+    .copy{ margin:0; color: rgba(248,244,228,.70); font-size: 14px; line-height:1.45; }
+
     .input{
-      flex: 1 1 220px;
+      width:100%;
       border-radius: 999px;
       padding: 12px 14px;
       border:1px solid rgba(255,255,255,.12);
       background: rgba(255,255,255,.06);
-      color: var(--warm);
+      color: var(--text);
       outline:none;
     }
-    .input::placeholder{color: rgba(248,244,228,.55)}
+    .input::placeholder{ color: rgba(248,244,228,.55); }
+
     .toast{
       display:none;
       margin-top: 10px;
@@ -314,52 +295,25 @@
       color: rgba(248,244,228,.92);
       font-size: 13px;
     }
+    .fineprint{ margin: 6px 0 0; color: rgba(248,244,228,.55); font-size: 12px; line-height:1.4; }
 
-    /* Sección campaña */
-    .campaign{
-      max-width:1100px;
-      margin: 18px auto 0;
-      padding: 18px;
-      display:grid;
-      grid-template-columns: repeat(3, minmax(0,1fr));
-      gap:12px;
-    }
-    @media (max-width: 900px){
-      .campaign{grid-template-columns:1fr}
-    }
-    .tile{
-      padding: 16px;
-      border-radius: 20px;
-      background: rgba(255,255,255,.05);
-      border:1px solid rgba(255,255,255,.10);
-    }
-    .tile strong{
-      display:block;
-      text-transform:uppercase;
-      letter-spacing:.7px;
-      font-weight:950;
-      margin-bottom: 6px;
-    }
-    .tile p{
-      margin:0;
-      color: var(--muted);
-      line-height:1.5;
-      font-size: 14px;
-    }
-
+    /* Footer */
     footer{
-      max-width:1100px;
-      margin: 18px auto 30px;
+      max-width:1150px;
+      margin: 22px auto 36px;
       padding: 0 18px;
-      color: rgba(248,244,228,.55);
-      font-size: 12px;
       display:flex;
       justify-content:space-between;
+      align-items:center;
       gap:12px;
       flex-wrap:wrap;
+      color: rgba(248,244,228,.55);
+      font-size: 12px;
     }
-    .links a{color: rgba(248,244,228,.75); text-decoration:none}
-    .links a:hover{color: var(--orange)}
+
+    @media (prefers-reduced-motion: reduce){
+      .btn, .iconbtn { transition:none; }
+    }
   </style>
 </head>
 
@@ -371,15 +325,40 @@
   <header class="topbar">
     <div class="wrap">
       <div class="brand">
-        <!-- Si tienes logo: ponlo en assets/logo.png -->
-        <img src="assets/logo.png" alt="Logo Alitas Sin Ley" onerror="this.style.display='none'">
+        <img src="assets/logo.png" alt="Alitas Sin Ley" onerror="this.style.display='none'">
         <div>
-          <strong>ALITAS <span>SIN LEY</span></strong>
-          <small>Chía, Cundinamarca • 12:00 m – 10:00 pm <b>SOLO DOMICILIOS</b></small>
+          <div class="title">ALITAS <span>SIN LEY</span></div>
+          <span class="sub">Chía, Cundinamarca • 12:00 m – 10:00 pm <span class="badge">🏍️ SOLO DOMICILIOS</span></span>
         </div>
       </div>
 
-      <div class="cta">
+      <div class="nav">
+        <!-- REDES ARRIBA -->
+        <div class="social-top" aria-label="Redes sociales">
+          <span class="label">Síguenos</span>
+
+          <a class="iconbtn" id="igTop" target="_blank" rel="noopener" aria-label="Instagram">
+            <!-- Instagram SVG -->
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm10 2H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3zm-5 4a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm5.5-2.2a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2z"/>
+            </svg>
+          </a>
+
+          <a class="iconbtn" id="ttTop" target="_blank" rel="noopener" aria-label="TikTok">
+            <!-- TikTok (simple note icon) -->
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M14 3v10.2a3.8 3.8 0 1 1-3-3.7V7.3A7 7 0 1 0 17 14V8.8c1.2.8 2.6 1.2 4 1.2V6.9c-2 0-4-1.7-4.4-3.9H14z"/>
+            </svg>
+          </a>
+
+          <a class="iconbtn" id="fbTop" target="_blank" rel="noopener" aria-label="Facebook">
+            <!-- Facebook SVG -->
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M13.5 22v-8h2.7l.4-3H13.5V9.1c0-.9.3-1.6 1.6-1.6h1.6V4.8c-.3 0-1.5-.1-2.8-.1-2.8 0-4.6 1.7-4.6 4.8V11H7v3h2.7v8h3.8z"/>
+            </svg>
+          </a>
+        </div>
+
         <a class="btn" href="#campana">Campaña</a>
         <a class="btn primary" id="ctaWhats" target="_blank" rel="noopener">🔥 Quiero estar primero</a>
       </div>
@@ -388,168 +367,130 @@
 
   <main>
     <section class="grid">
+      <!-- IZQUIERDA -->
       <article class="card hero">
-        <span class="tag">🔥 Lanzamiento • Viernes 27 • 12:00 m</span>
+        <span class="tag">🔥 Lanzamiento en Chía</span>
         <h1>ALITAS SIN REGLAS.<br><span class="hot">FUEGO</span> SIN PIEDAD.</h1>
         <p>
           Se viene lo ilegalmente sabroso. <b>Solo domicilios en Chía</b>.
-          Estamos preparando el primer drop de salsas y combos para que comas con actitud.
+          Únete a la lista VIP y te avisamos apenas abramos.
         </p>
 
         <div class="count" aria-label="Cuenta regresiva al lanzamiento">
-          <div class="box">
-            <div class="num" id="d">00</div>
-            <div class="lbl">Días</div>
-          </div>
-          <div class="box">
-            <div class="num" id="h">00</div>
-            <div class="lbl">Horas</div>
-          </div>
-          <div class="box">
-            <div class="num" id="m">00</div>
-            <div class="lbl">Min</div>
-          </div>
-          <div class="box">
-            <div class="num" id="s">00</div>
-            <div class="lbl">Seg</div>
-          </div>
+          <div class="box"><div class="num" id="d">00</div><div class="lbl">Días</div></div>
+          <div class="box"><div class="num" id="h">00</div><div class="lbl">Horas</div></div>
+          <div class="box"><div class="num" id="m">00</div><div class="lbl">Min</div></div>
+          <div class="box"><div class="num" id="s">00</div><div class="lbl">Seg</div></div>
         </div>
 
-        <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
+        <div class="hero-actions">
           <a class="btn primary" id="btnWhats" target="_blank" rel="noopener">Ordenar / Preguntar por lanzamiento</a>
           <a class="btn" href="#notify">Recibir aviso</a>
         </div>
       </article>
 
-      <aside class="card side">
+      <!-- DERECHA -->
+      <aside class="card side" id="notify">
         <h3>Lo que viene</h3>
-        <div class="pill"><span>🏍️ Solo domicilios</span><b>Chía y alrededores</b></div>
+        <div class="pill"><span>⚠️ Drop limitado</span><b>Primeros en probar</b></div>
         <div class="pill"><span>🔥 Salsas extremas</span><b>Nivel criminal</b></div>
         <div class="pill"><span>🚀 Atención rápida</span><b>WhatsApp directo</b></div>
 
-        <p class="small">
-          Únete a “Los Primeros Sin Ley” y te mandamos el aviso apenas abramos.
-          Si hay promo de lanzamiento, te cae primero.
+        <p class="copy">
+          Déjanos tu dato y te llega el aviso cuando abramos (y promo si aplica).
         </p>
 
-        <div id="notify">
-          <div class="notify" style="flex-direction:column; align-items:stretch;">
-            <div style="display:flex; gap:10px; flex-wrap:wrap;">
-              <input class="input" id="name" placeholder="Tu nombre (opcional)" />
-              <input class="input" id="contact" placeholder="Tu WhatsApp o correo (ej: 305xxxxxxx o email@...)" />
-            </div>
+        <input class="input" id="name" placeholder="Tu nombre (opcional)" />
+        <input class="input" id="contact" placeholder="Tu WhatsApp o correo (obligatorio)" />
 
-            <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
-              <label class="btn" style="cursor:pointer;">
-                <input type="radio" name="sendMethod" value="whatsapp" checked style="margin-right:8px;">
-                Enviar por WhatsApp
-              </label>
-              <label class="btn" style="cursor:pointer;">
-                <input type="radio" name="sendMethod" value="email" style="margin-right:8px;">
-                Enviar por Correo
-              </label>
-            </div>
+        <button class="btn primary" id="notifyBtn" type="button">🚨 Quiero el aviso</button>
+        <div class="toast" id="toast"></div>
 
-            <button class="btn primary" id="notifyBtn" type="button" style="margin-top:10px;">
-              🚨 Quiero el aviso
-            </button>
-          </div>
-
-          <div class="toast" id="toast"></div>
-
-          <p class="small" style="margin-top:10px;">
-            *Sin backend: al dar clic se abre WhatsApp o tu correo con el mensaje listo.
-          </p>
-        </div>
+        <p class="fineprint">
+          *Tus datos se registran para avisarte del lanzamiento. Solo domicilios.
+        </p>
       </aside>
     </section>
 
-    <section class="campaign" id="campana">
-      <div class="tile">
-        <strong>Campaña 1: “Drop de Fuego”</strong>
-        <p>
-          7 días antes: cuenta regresiva + teasers de salsa (1 por día).
-          Corto, agresivo, tipo graffiti.
-        </p>
-      </div>
-      <div class="tile">
-        <strong>Campaña 2: “Los Primeros Sin Ley”</strong>
-        <p>
-          Lista VIP por WhatsApp/Correo: “Escribe ‘SIN LEY’ y te mandamos el aviso apenas abramos”.
-          Solo domicilios.
-        </p>
-      </div>
-      <div class="tile">
-        <strong>Campaña 3: “Apertura al Medio Día”</strong>
-        <p>
-          Viernes 27, 12:00 m: anuncio con urgencia: “Primeros pedidos = prioridad”.
-          Mantén el misterio del menú hasta el día 0.
-        </p>
+    <!-- CAMPAÑA -->
+    <section class="grid" id="campana" style="margin-top:18px; grid-template-columns: 1fr;">
+      <div class="card" style="padding:18px 20px;">
+        <div style="display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap:12px;">
+          <div style="border:1px solid rgba(255,255,255,.10); background: rgba(0,0,0,.24); border-radius:20px; padding:16px;">
+            <div style="font-weight:1000; letter-spacing:.7px; text-transform:uppercase; margin-bottom:6px;">Campaña 1</div>
+            <div style="color:rgba(248,244,228,.70); line-height:1.5; font-size:14px;">
+              “Drop de Fuego” — teasers diarios + cuenta regresiva.
+            </div>
+          </div>
+          <div style="border:1px solid rgba(255,255,255,.10); background: rgba(0,0,0,.24); border-radius:20px; padding:16px;">
+            <div style="font-weight:1000; letter-spacing:.7px; text-transform:uppercase; margin-bottom:6px;">Campaña 2</div>
+            <div style="color:rgba(248,244,228,.70); line-height:1.5; font-size:14px;">
+              “Los Primeros Sin Ley” — lista VIP y aviso primero.
+            </div>
+          </div>
+          <div style="border:1px solid rgba(255,255,255,.10); background: rgba(0,0,0,.24); border-radius:20px; padding:16px;">
+            <div style="font-weight:1000; letter-spacing:.7px; text-transform:uppercase; margin-bottom:6px;">Campaña 3</div>
+            <div style="color:rgba(248,244,228,.70); line-height:1.5; font-size:14px;">
+              Día 0: “Apertura al medio día” — urgencia + primer drop.
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
     <footer>
       <div>© <span id="yr"></span> Alitas Sin Ley • Chía, Cundinamarca • <b>Solo domicilios</b></div>
-      <div class="links">
-        <a id="ig" href="#" target="_blank" rel="noopener">Instagram</a> •
-        <a id="tt" href="#" target="_blank" rel="noopener">TikTok</a> •
-        <a id="wa" href="#" target="_blank" rel="noopener">WhatsApp</a>
-      </div>
     </footer>
   </main>
 
   <script>
-    // ========= CONFIG =========
-    const PHONE = "573057525071"; // +57 305 752 5071
-    const BUSINESS_EMAIL = "alitassinley@gmail.com";
-
-    // Lanzamiento: viernes 27 de febrero al medio día (Colombia -05:00)
-    // (Estamos en 2026, por eso el año va 2026)
+    // =========================
+    // CONFIG
+    // =========================
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxbEQ2tbZXtrzutdGFwxMT2_Kybumon3XazmepU5Bzga9g_GcCG9bD8VudTyTBPSYCl/exec";
+    const PHONE = "573057525071";
     const LAUNCH_DATE = "2026-02-27T12:00:00-05:00";
+    const MAIN_PAGE = "Index.html";
 
-    // Links redes (pon los tuyos cuando los tengas)
-    const INSTAGRAM_URL = "#";
-    const TIKTOK_URL = "#";
-    // ==========================
+    // Redes
+    const INSTAGRAM_URL = "https://www.instagram.com/alitassinley/?utm_source=ig_web_button_share_sheet";
+    const TIKTOK_URL = "https://www.tiktok.com/@alitassinley1?is_from_webapp=1&sender_device=pc";
+    const FACEBOOK_URL = "http://facebook.com/Alitasinley";
 
+    // =========================
     const $ = (id) => document.getElementById(id);
-    const pad = (n) => String(n).padStart(2, "0");
+    const pad = (n) => String(n).padStart(2,"0");
+    const launchTs = new Date(LAUNCH_DATE).getTime();
 
     function waLink(text){
       return `https://wa.me/${PHONE}?text=${encodeURIComponent(text)}`;
     }
 
-    // Botones WhatsApp (solo domicilios)
-    const baseMsg = "🔥 Hola Alitas Sin Ley (SOLO DOMICILIOS en Chía). Quiero estar primero para el lanzamiento. ¿Cómo me apunto y a qué hora abren el viernes 27 al medio día?";
-    $("ctaWhats").href = waLink(baseMsg);
-    $("btnWhats").href = waLink(baseMsg);
-    $("wa").href = waLink("🔥 Hola Alitas Sin Ley (SOLO DOMICILIOS). Quiero info del lanzamiento.");
+    // Links redes (arriba)
+    $("igTop").href = INSTAGRAM_URL;
+    $("ttTop").href = TIKTOK_URL;
+    $("fbTop").href = FACEBOOK_URL;
 
-    $("ig").href = INSTAGRAM_URL;
-    $("tt").href = TIKTOK_URL;
+    // WhatsApp CTAs
+    $("ctaWhats").href = waLink("🔥 Hola Alitas Sin Ley (SOLO DOMICILIOS en Chía). Quiero estar primero para el lanzamiento. ¿Cómo me apunto?");
+    $("btnWhats").href = waLink("🔥 Hola Alitas Sin Ley (SOLO DOMICILIOS). Quiero info del lanzamiento y cómo pedir.");
 
-    // Cuenta regresiva
-    const launchTs = new Date(LAUNCH_DATE).getTime();
+    // Año footer
+    $("yr").textContent = new Date().getFullYear();
+
+    // Redirección cuando llegue la fecha
+    function redirectToMain(){
+      if (!location.pathname.endsWith("/" + MAIN_PAGE) && !location.pathname.endsWith(MAIN_PAGE)){
+        window.location.href = MAIN_PAGE;
+      }
+    }
 
     function tick(){
       const now = Date.now();
       let diff = launchTs - now;
 
-      if (isNaN(launchTs)) {
-        $("d").textContent = "??";
-        $("h").textContent = "??";
-        $("m").textContent = "??";
-        $("s").textContent = "??";
-        return;
-      }
-
       if (diff <= 0){
-        $("d").textContent = "00";
-        $("h").textContent = "00";
-        $("m").textContent = "00";
-        $("s").textContent = "00";
-        $("btnWhats").textContent = "🔥 Ya abrió — Pedir a domicilio";
-        $("btnWhats").href = waLink("🔥 Hola Alitas Sin Ley. Ya abrió el lanzamiento. Quiero pedir a DOMICILIO en Chía. Dirección: ____  Pedido: ____");
+        redirectToMain();
         return;
       }
 
@@ -566,84 +507,114 @@
       $("m").textContent = pad(m);
       $("s").textContent = pad(s);
     }
-
     tick();
     setInterval(tick, 1000);
-    $("yr").textContent = new Date().getFullYear();
 
-    // "Quiero el aviso" -> WhatsApp o Email
-    $("notifyBtn").addEventListener("click", () => {
+    // Toast
+    function toast(msg, ok=true){
+      const t = $("toast");
+      t.style.display = "block";
+      t.textContent = msg;
+      t.style.borderColor = ok ? "rgba(241,90,23,.22)" : "rgba(219,34,16,.35)";
+      setTimeout(()=>{ t.style.display = "none"; }, 5200);
+    }
+
+    // Envío robusto (sin CORS error): sendBeacon + fallback fetch no-cors
+    function sendLead(payload){
+      try{
+        const blob = new Blob([JSON.stringify(payload)], { type: "text/plain;charset=UTF-8" });
+        const ok = navigator.sendBeacon(SCRIPT_URL, blob);
+        if (ok) return Promise.resolve(true);
+      }catch(e){ /* ignore */ }
+
+      // fallback
+      return fetch(SCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type":"text/plain;charset=UTF-8" },
+        body: JSON.stringify(payload)
+      }).then(()=> true).catch(()=> false);
+    }
+
+    $("notifyBtn").addEventListener("click", async () => {
       const name = $("name").value.trim();
       const contact = $("contact").value.trim();
-      const method = document.querySelector("input[name='sendMethod']:checked")?.value || "whatsapp";
 
-      const msg =
-        `🚨 QUIERO EL AVISO DE LANZAMIENTO (Chía) - SOLO DOMICILIOS\n` +
-        (name ? `Nombre: ${name}\n` : "") +
-        (contact ? `Contacto: ${contact}\n` : "") +
-        `Lanzamiento: Viernes 27 de febrero • 12:00 m\n` +
-        `Mensaje: Envíenme el aviso apenas abran (y promo si hay).\n` +
-        `🔥 Soy de los primeros SIN LEY.`;
-
-      if (method === "email") {
-        const subject = "Lista VIP — Aviso de lanzamiento (Alitas Sin Ley)";
-        const body = msg;
-        const mailto = `mailto:${BUSINESS_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-        window.location.href = mailto;
-
-        const t = $("toast");
-        t.style.display = "block";
-        t.textContent = "Listo: se abrió tu correo con el mensaje. Si no tienes app de correo configurada, usa WhatsApp.";
-        setTimeout(()=>{ t.style.display="none"; }, 5000);
+      if (!contact){
+        toast("⚠️ Escribe tu WhatsApp o correo para poder avisarte.", false);
         return;
       }
 
-      window.open(waLink(msg), "_blank", "noopener");
+      const payload = {
+        brand: "Alitas Sin Ley",
+        city: "Chía, Cundinamarca",
+        onlyDelivery: true,
+        launchDate: LAUNCH_DATE,
+        name: name || "",
+        contact,
+        createdAt: new Date().toISOString(),
+        page: location.href
+      };
 
-      const t = $("toast");
-      t.style.display = "block";
-      t.textContent = "Listo: se abrió WhatsApp con tu mensaje. Si no te abrió, revisa bloqueador de pop-ups.";
-      setTimeout(()=>{ t.style.display="none"; }, 5000);
+      const btn = $("notifyBtn");
+      const old = btn.textContent;
+      btn.disabled = true;
+      btn.textContent = "Guardando...";
+
+      const ok = await sendLead(payload);
+
+      if (ok){
+        toast("🔥 Listo. Quedaste en la lista VIP. Te avisamos apenas abramos.");
+        $("name").value = "";
+        $("contact").value = "";
+      } else {
+        toast("❌ No se pudo enviar. Intenta de nuevo.", false);
+      }
+
+      btn.disabled = false;
+      btn.textContent = old;
     });
 
-    // Chispas minimalistas (ligero)
-    const canvas = $("sparks");
+    // Chispas (ligero)
+    const canvas = document.getElementById("sparks");
     const ctx = canvas.getContext("2d");
-    let w, h, sparks;
+    let w,h,parts;
 
     function resize(){
       w = canvas.width = window.innerWidth;
       h = canvas.height = window.innerHeight;
-      sparks = Array.from({length: Math.min(70, Math.floor(w/18))}, () => ({
+      const count = Math.min(90, Math.floor(w/16));
+      parts = Array.from({length: count}, () => ({
         x: Math.random()*w,
         y: h + Math.random()*h,
-        r: Math.random()*2 + 0.6,
-        v: Math.random()*0.6 + 0.25,
-        a: Math.random()*0.5 + 0.15
+        r: Math.random()*2 + .7,
+        v: Math.random()*0.8 + .25,
+        a: Math.random()*0.55 + .12
       }));
     }
     window.addEventListener("resize", resize);
     resize();
 
     const reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    function animate(){
+    function anim(){
       if (reduce) return;
       ctx.clearRect(0,0,w,h);
-      for (const p of sparks){
-        p.y -= p.v*2.8;
-        p.x += Math.sin(p.y*0.01)*0.35;
-        if (p.y < -20){
+      for (const p of parts){
+        p.y -= p.v*3.0;
+        p.x += Math.sin(p.y*0.012)*0.4;
+        if (p.y < -30){
           p.y = h + Math.random()*120;
           p.x = Math.random()*w;
         }
         ctx.beginPath();
-        ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
+        ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
         ctx.fillStyle = `rgba(241,90,23,${p.a})`;
         ctx.fill();
       }
-      requestAnimationFrame(animate);
+      requestAnimationFrame(anim);
     }
-    animate();
+    anim();
   </script>
 </body>
 </html>
+
