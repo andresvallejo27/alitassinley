@@ -521,40 +521,29 @@
 
     // Envío robusto (sin CORS error): sendBeacon + fallback fetch no-cors
     function sendLead(payload){
-      try{
-        const blob = new Blob([JSON.stringify(payload)], { type: "text/plain;charset=UTF-8" });
-        const ok = navigator.sendBeacon(SCRIPT_URL, blob);
-        if (ok) return Promise.resolve(true);
-      }catch(e){ /* ignore */ }
+  // ✅ Enviar como form-urlencoded (cero CORS/preflight)
+  const form = new URLSearchParams();
+  for (const [k, v] of Object.entries(payload)) form.append(k, String(v ?? ""));
 
-      // fallback
-      return fetch(SCRIPT_URL, {
-        method: "POST",
-        mode: "no-cors",
-        headers: { "Content-Type":"text/plain;charset=UTF-8" },
-        body: JSON.stringify(payload)
-      }).then(()=> true).catch(()=> false);
-    }
+  return fetch(SCRIPT_URL, {
+    method: "POST",
+    mode: "no-cors",
+    headers: { "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8" },
+    body: form.toString()
+  })
+  .then(()=> true)
+  .catch(()=> false);
+}
 
-    $("notifyBtn").addEventListener("click", async () => {
-      const name = $("name").value.trim();
-      const contact = $("contact").value.trim();
-
-      if (!contact){
-        toast("⚠️ Escribe tu WhatsApp o correo para poder avisarte.", false);
-        return;
-      }
-
-      const payload = {
-        brand: "Alitas Sin Ley",
-        city: "Chía, Cundinamarca",
-        onlyDelivery: true,
-        launchDate: LAUNCH_DATE,
-        name: name || "",
-        contact,
-        createdAt: new Date().toISOString(),
-        page: location.href
-      };
+     const payload = {
+  name: name || "",
+  contact,
+  city: "Chía, Cundinamarca",
+  onlyDelivery: "true",
+  launchDate: LAUNCH_DATE,
+  createdAt: new Date().toISOString(),
+  page: location.href
+};
 
       const btn = $("notifyBtn");
       const old = btn.textContent;
@@ -617,4 +606,5 @@
   </script>
 </body>
 </html>
+
 
