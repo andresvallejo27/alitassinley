@@ -260,14 +260,12 @@ a{color:inherit; text-decoration:none}
   border-bottom:1px solid rgba(255,255,255,.10);
 }
 .product__imgInner{
-  position:absolute; inset:0;
-  background-image:
-    radial-gradient(circle at 15% 20%, rgba(255,255,255,.18) 0 2px, transparent 3px),
-    radial-gradient(circle at 55% 45%, rgba(255,255,255,.10) 0 1px, transparent 2px),
-    radial-gradient(circle at 75% 70%, rgba(255,255,255,.12) 0 1px, transparent 2px);
-  background-size: 140px 140px, 180px 180px, 160px 160px;
+  position:relative;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   opacity:.35;
-  animation: sparks 12s linear infinite;
+  animation: sparks 2s linear infinite;
 }
 .product__heat{
   position:absolute; right:12px; top:12px;
