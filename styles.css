@@ -265,7 +265,7 @@ a{color:inherit; text-decoration:none}
   height: 100%;
   object-fit: cover;
   opacity:.35;
-  animation: sparks 2s linear infinite;
+ 
 }
 .product__heat{
   position:absolute; right:12px; top:12px;
