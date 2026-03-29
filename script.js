@@ -43,3 +43,8 @@
   });
   setActive('__all');
 })();
+{
+    t.addEventListener('click', ()=> setActive(t.dataset.cat));
+  });
+  setActive('__all');
+})();
