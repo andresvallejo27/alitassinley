@@ -1,4 +1,3 @@
-
 (function(){
   const btn = document.querySelector('.hamburger');
   const mobile = document.getElementById('mobileNav');
@@ -39,11 +38,6 @@
     if(grid) grid.setAttribute('data-filter', cat);
   }
   tabs.forEach(t=>{
-    t.addEventListener('click', ()=> setActive(t.dataset.cat));
-  });
-  setActive('__all');
-})();
-{
     t.addEventListener('click', ()=> setActive(t.dataset.cat));
   });
   setActive('__all');
